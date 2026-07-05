@@ -1,0 +1,7 @@
+[project]
+name = "vinted-hunter"
+version = "0.1.0"
+description = "Vinted Hunter"
+requires-python = ">=3.14"
+
+dependencies = []
