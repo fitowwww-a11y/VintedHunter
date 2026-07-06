@@ -15,8 +15,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-    notifications = NotificationService()
-    from vinted_hunter.config.settings import settings
-
-print(settings.telegram_bot_token)
-print(settings.telegram_chat_id)
