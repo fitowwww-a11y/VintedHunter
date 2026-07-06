@@ -1,12 +1,22 @@
-from vinted_hunter.config.settings import settings
+import asyncio
+
 from vinted_hunter.core.logger import app_logger
+from vinted_hunter.services.notification_service import NotificationService
 
 
-def main():
-    app_logger.info("Vinted Hunter started")
-    app_logger.info(f"Check interval: {settings.check_interval}")
-    app_logger.info(f"Log level: {settings.log_level}")
+async def main():
+    app_logger.info("Starting application...")
+
+    notifications = NotificationService()
+    await notifications.send_startup_message()
+
+    app_logger.info("Application started successfully")
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
+    notifications = NotificationService()
+    from vinted_hunter.config.settings import settings
+
+print(settings.telegram_bot_token)
+print(settings.telegram_chat_id)
