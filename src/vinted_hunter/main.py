@@ -1,16 +1,11 @@
 import asyncio
 
-from vinted_hunter.core.logger import app_logger
-from vinted_hunter.services.notification_service import NotificationService
+from vinted_hunter.app import Application
 
 
 async def main():
-    app_logger.info("Starting application...")
-
-    notifications = NotificationService()
-    await notifications.send_startup_message()
-
-    app_logger.info("Application started successfully")
+    app = Application()
+    await app.run_once()
 
 
 if __name__ == "__main__":
